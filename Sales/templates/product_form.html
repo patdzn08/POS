@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<br>
+<br>
+<body style="background-color:#f0f8ff; margin-left:25%; margin-top:5%" >
+<h1 style="color:#000080;margin-left:35%; margin-bottom:5%"> ADD PRODUCT </h1>
+    <div style="color:#000080; font-size:20px; background-color:whitesmoke; border-radius:5px; margin-bottom:5%; ">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group" style="margin-left:3%; margin-right:3%">
+                
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group" style="margin-left:75%" >
+                <button class="btn btn-primary btn-lg "  type="submit" >ADD</button>
+                <a href="{% url 'Sales-home' %}" class="btn btn-outline-dark btn-lg"s >BACK</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+
+<body>

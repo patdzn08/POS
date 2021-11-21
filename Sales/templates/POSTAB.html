@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+ {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <!-- Font Awesome -->
+
+</head>
+
+<body style="background-color:#f0f8ff; margin-left:25%; margin-top:10%; " >
+<h1 style="color:#000080;margin-left:29%; margin-bottom:5%"> CHECKOUT PRODUCT </h1>
+  <form method="post">
+    {% csrf_token %}
+  <table class="table table-hover" style="text-align:center;background-color: whitesmoke;">
+    
+
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col" align="center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>  
+    
+        {% for post in posts %}
+          <td> {{ post.product_name }}</td>
+          <td>
+            <input type="number" id="quantity" name="quantity" min=0 max={{post.quantity}}>
+          </td>
+          <td>{{ post.price }}</td>
+          <td>
+            <input type="checkbox" name="items[]" class="form-checkinput" value="{{post.pk}}"></input>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      
+      </table>
+      
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">CHECKOUT</button>
+      </div>
+</body>
+</html>
+
+
+{% endblock content %}
