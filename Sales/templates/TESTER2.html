@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+ {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <!-- Font Awesome -->
+
+</head>
+<body style="background-color:#f0f8ff; margin-left:60%; margin-top:10%;font-size:20px;color:#000080 " >
+
+<h1 style="color:#000080; margin-bottom:5%"> CHECKOUT PRODUCT </h1>
+
+    <div style="text-align:left; font-size:25px; background-color:whitesmoke">
+    {% for item in items %}
+        <p> {{item.name}} <span class="pl-3" >{{ item.price}}</span></span></p>
+        {% endfor %}
+        <p class='text-muted'>Total: {{price}}</p>
+      
+        </div>
+        <div class="form-group">
+            <a href="{% url 'Sales-POS' %}" class="btn btn-primary btn-lg btn-block" type="submit">CHECKOUT</a>
+          </div>
+    
+</body>
+</html>
+
+
+{% endblock content %}

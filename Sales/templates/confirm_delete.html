@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<br>
+<br>
+    <div>
+        <form method="POST"  style="color:#000080; background-color:whitesmoke;">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">DELETE PRODUCT</legend>
+                <h4> Are you sure you want to delete the product {{object.product_name}}? </h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-dark" href="{% url 'prod-details' object.product_id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}
